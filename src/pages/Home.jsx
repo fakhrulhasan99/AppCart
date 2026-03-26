@@ -7,7 +7,7 @@ const Home = () => {
 
     const apps = useLoaderData();
     useEffect(() => {
-        document.title = "Home | Doc Talk";
+        document.title = "Home | AppCart";
     })
     // console.log(data)
 

@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const InstallationPage = () => {
     const [installedApps, setInstalledApps] = useState([]);
+    const [sortOption, setSortOption] = useState("default");
 
     useEffect(() => {
         const apps = JSON.parse(localStorage.getItem("installedApps")) || [];
@@ -16,6 +17,15 @@ const InstallationPage = () => {
         localStorage.setItem("installedApps", JSON.stringify(updatedApps));
         toast.info("App Uninstalled");
     };
+    const sortedApps = [...installedApps].sort((a, b) => {
+        if (sortOption === "high") {
+            return b.downloads - a.downloads; // High → Low
+        }
+        if (sortOption === "low") {
+            return a.downloads - b.downloads; // Low → High
+        }
+        return 0; // Default (as added)
+    });
 
     if (installedApps.length === 0) {
         return <p className="text-center text-4xl mt-10">No Apps Installed Yet</p>;
@@ -27,8 +37,25 @@ const InstallationPage = () => {
             <p className="text-slate-500 text-center">
                 Explore All Trending Apps on the Market developed by us
             </p>
+            <div className="flex justify-between items-center flex-wrap gap-3">
 
-            {installedApps.map((app) => (
+                <p className="text-lg font-bold">
+                    Installed Apps ({sortedApps.length})
+                </p>
+
+                <select
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className="w-full sm:w-auto max-w-xs px-3 py-2 border rounded-lg outline-none"
+                >
+                    <option value="default">Default</option>
+                    <option value="high">Downloads: High → Low</option>
+                    <option value="low">Downloads: Low → High</option>
+                </select>
+
+            </div>
+
+            {sortedApps.map((app) => (
                 <div
                     key={app.id}
                     className="flex items-center justify-between p-4 bg-white rounded-lg shadow"

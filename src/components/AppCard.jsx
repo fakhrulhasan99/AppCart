@@ -22,7 +22,7 @@ const AppCard = ({ app }) => {
           <img
             src={image}
             alt={title}
-            className="w-20 h-20 object-contain rounded-xl"
+            className="w-2/3 object-contain rounded-xl"
           />
         </div>
 
