@@ -1,21 +1,19 @@
 import React, { useEffect } from 'react';
 import { useLoaderData } from 'react-router';
-import Banner from '../components/Banner';
 
-const Home = () => {
+const AllApps = () => {
 
     const data = useLoaderData();
     useEffect(() => {
         document.title = "Home | Doc Talk";
     })
     console.log(data)
-
+    
     return (
         <div>
-            <Banner data={data}/>
-            this is home
+            alllllllllll appps
         </div>
     );
 };
 
-export default Home;
+export default AllApps;

@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 const Layout = () => {
     return (
-        <div>
+        <div className='mx-auto'>
             <Header />
             <Outlet/>
         </div>
