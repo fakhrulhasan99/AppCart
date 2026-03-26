@@ -3,6 +3,7 @@ import React from "react";
 import { getAppStats } from "../utils/stats";
 import { formatNumber } from "../utils/formatNumber";
 import HeroPic from "../assets/hero.png"
+import { Link } from "react-router";
 
 const Banner = ({ data }) => {
     const { totalDownloads, totalReviews, totalApps } = getAppStats(data);
@@ -14,10 +15,25 @@ const Banner = ({ data }) => {
                     We Build <span className="text-transparent bg-clip-text bg-linear-to-r from-[#632EE3] to-[#9F62F2]">Productive </span>
                     Apps
                 </h1>
-                <p className="text-xl text-slate-500">
+                <p className="text-xl text-slate-500 pb-4">
                     At AppCart, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.Our goal is to turn your ideas into digital experiences that truly make an impact.
                 </p>
-
+                <div className="flex justify-center gap-4">
+                    <a 
+                    href="https://play.google.com/store/apps" 
+                    target="blank"
+                    className="btn">
+                        <img className="h-6" src="https://img.icons8.com/?size=48&id=rZwnRdJyYqRi&format=png" alt="" />
+                        Google Play
+                    </a>
+                    <a 
+                    href="https://www.apple.com/app-store/" 
+                    target="blank"
+                    className="btn">
+                        <img className="h-6" src="https://img.icons8.com/?size=48&id=fKXXelWgP1B6&format=png" alt="" />
+                        App Store
+                    </a>
+                </div>
             </div>
             <div className="max-w-300 mx-auto p-4 pb-0">
                 <img className="max-w-xl w-full"
