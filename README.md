@@ -20,23 +20,6 @@ AppCart is a modern app store–like web application where users can explore, se
 - 🔔 React Toastify
 - 💾 Local Storage API
 
-## 📂 Project Structure
-
-src/
-├── components/
-├── pages/
-├── layout/
-├── routes/
-├── assets/
-
-
-## 📦 Installation
-```bash
-npm install
-npm run dev
-🌍 Live Demo
-
-(Add your Netlify/Vercel link here)
 
 👨‍💻 Author
 
