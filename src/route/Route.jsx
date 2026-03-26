@@ -25,12 +25,7 @@ export const router = createBrowserRouter([
             {
                 path: "/apps",
                 Component: AllApps,
-                loader: () => fetch("appsData.json").then(res => res.json())
-                // loader: async () => {
-                //     await new Promise(res => setTimeout(res, 300)); // fake delay
-                //     return fetch("/appsData.json").then(res => res.json());
-                // }
-
+                loader: () => fetch("/appsData.json").then(res => res.json())
             },
             {
                 path: "/installation",

@@ -13,20 +13,23 @@ import {
 import DownloadIcon from "../assets/icon-downloads.png"
 import ReviewsIcon from "../assets/icon-review.png"
 import RatingsIcon from "../assets/icon-ratings.png"
+import Loader from './Loader';
 
 const AppDetails = () => {
 
     const apps = useLoaderData();
     const { id } = useParams();
     const app = apps.find((a) => a.id === parseInt(id));
+
     const [installed, setInstalled] = useState(false);
 
     useEffect(() => {
+        if (!app) return;
         const installedApps = JSON.parse(localStorage.getItem("installedApps")) || [];
 
         const isInstalled = installedApps.some(a => a.id === app.id);
         setInstalled(isInstalled);
-    }, [app.id]);
+    }, [app]);
 
     const handleInstall = () => {
         const installedApps = JSON.parse(localStorage.getItem("installedApps")) || [];
@@ -41,14 +44,14 @@ const AppDetails = () => {
         setInstalled(true);
         toast.success("App Installed Successfully!");
     };
+    if (!app) {
+        return <Loader/>;
+    }
 
     const sortedRatings = [...app.ratings].sort(
         (a, b) => b.count - a.count
     );
 
-    if (!app) {
-        return <p className="text-center mt-10">App Not Found</p>;
-    }
 
     return (
         <div className='bg-slate-200'>
