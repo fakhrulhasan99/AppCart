@@ -1,12 +1,17 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigation } from 'react-router';
 import Navbar from '../components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import Footer from '../components/Footer';
+import Loader from '../pages/Loader';
 
 const Layout = () => {
+
+    const navigation = useNavigation();
+
     return (
         <div className='mx-auto'>
+            {navigation.state === "loading" && <Loader/>}
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

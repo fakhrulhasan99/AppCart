@@ -16,13 +16,21 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                loader: () => fetch("/appsData.json").then(res => res.json()),
                 Component: Home,
+                loader: async () => {
+                    await new Promise(res => setTimeout(res, 300));
+                    return fetch("/appsData.json").then(res => res.json());
+                },
             },
             {
                 path: "/apps",
-                loader: () => fetch("/appsData.json").then(res => res.json()),
                 Component: AllApps,
+                loader: () => fetch("appsData.json").then(res => res.json())
+                // loader: async () => {
+                //     await new Promise(res => setTimeout(res, 300)); // fake delay
+                //     return fetch("/appsData.json").then(res => res.json());
+                // }
+
             },
             {
                 path: "/installation",
@@ -32,7 +40,7 @@ export const router = createBrowserRouter([
                 path: "/apps/:id",
                 loader: () => fetch("/appsData.json").then(res => res.json()),
                 Component: AppDetails,
-                errorElement: <AppErrorPage/>
+                errorElement: <AppErrorPage />
             }
         ]
     }

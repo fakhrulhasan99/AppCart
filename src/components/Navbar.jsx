@@ -26,10 +26,10 @@ const Navbar = () => {
                             {links}
                         </ul>
                     </div>
-                    <div className='flex items-center'>
+                    <Link to={"/"} className='flex items-center'>
                         <img className='w-8' src={Logo} alt="Logo" />
-                        <Link to={'/'} className="btn btn-ghost text-xl">AppCart</Link>
-                    </div>
+                        <button className="btn btn-ghost text-xl">AppCart</button>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
