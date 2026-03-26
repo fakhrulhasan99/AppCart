@@ -8,14 +8,13 @@ const Banner = ({ data }) => {
     const { totalDownloads, totalReviews, totalApps } = getAppStats(data);
 
     return (
-        <div className="flex flex-col items-center bg-[#D2D2D2] pt-10 lg:pt-20 mb-10lg
-        mb-20">
+        <div className="flex flex-col items-center pt-10">
             <div className="text-center max-w-300 mx-auto p-4">
                 <h1 className="text-4xl font-bold pb-4">
                     We Build <span className="text-transparent bg-clip-text bg-linear-to-r from-[#632EE3] to-[#9F62F2]">Productive </span>
                     Apps
                 </h1>
-                <p className="text-xl text-slate-700">
+                <p className="text-xl text-slate-500">
                     At AppCart, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.Our goal is to turn your ideas into digital experiences that truly make an impact.
                 </p>
 
